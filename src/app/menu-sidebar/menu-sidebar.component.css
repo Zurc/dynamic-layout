@@ -1,0 +1,6 @@
+.menu {
+    background: #f5f5f5;
+    display: inline-block;
+    height: calc(100vh - 36px);
+    padding: 10px;
+}

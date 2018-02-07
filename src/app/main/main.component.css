@@ -1,0 +1,6 @@
+.main {
+    background: #f9eaea;
+    display: inline-block;
+    height: calc(100vh - 36px);
+    padding: 10px;
+}

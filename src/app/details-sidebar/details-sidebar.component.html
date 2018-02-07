@@ -1,2 +1,4 @@
-<button (click)="toggleDetails()">Toggle Details</button>
-<p>details: {{ dw }}</p>
+<div class="details" [style.width.px]="dw" [style.marginRight.px]="marginR">
+    <button (click)="toggleDetails()">Toggle Details</button>
+    <p>details: {{ dw }}</p>
+</div>

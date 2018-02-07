@@ -12,31 +12,34 @@ export class LayoutService {
   MenuWidthPixelsChanged = 200;
   //
   // Details Sidebar width
-  detailsWidth = 200;
+  detailsSidebar = {
+    width: 200,
+    open: false
+  };
   //
   // ************************
 
   menuW: number;
   menuOpen = false;
   mainW: number;
-  detailsW: number;
-  detailsOpen = false;
+  detailsS: any;
+  // detailsOpen = false;
 
   // Observable sources
   private _menuW = new BehaviorSubject<number>(this.initialMenuWidth);
   private _mainW = new BehaviorSubject<number>(800);
-  private _detailsW = new BehaviorSubject<number>(this.detailsWidth);
+  private _detailsS = new BehaviorSubject<any>(this.detailsSidebar);
 
   // Streams
   menuWidth$ = this._menuW.asObservable();
   mainWidth$ = this._mainW.asObservable();
-  detailsWidth$ = this._detailsW.asObservable();
+  detailsSidebar$ = this._detailsS.asObservable();
 
   // Initial values for our streams
   constructor() {
     this.menuWidth$.subscribe( value => this.menuW = value );
     this.mainWidth$.subscribe( value => this.mainW = value );
-    this.detailsWidth$.subscribe( value => this.detailsW = value );
+    this.detailsSidebar$.subscribe( value => this.detailsS = value );
   }
 
   // case: menu changes width
@@ -54,9 +57,9 @@ export class LayoutService {
 
   // case: Details changes position
   toogleDetails() {
-    this.detailsOpen === true ?
-      (this.mainW -= this.detailsW, this.detailsOpen = false, console.log(`Details open: ${this.detailsOpen}`)) :
-      (this.mainW += this.detailsW, this.detailsOpen = true, console.log(`Details open: ${this.detailsOpen}`));
+    this.detailsSidebar.open === false ?
+      (this.mainW -= this.detailsS.width, this.detailsSidebar.open = true, this._detailsS.next(this.detailsSidebar)) :
+      (this.mainW += this.detailsS.width, this.detailsSidebar.open = false, this._detailsS.next(this.detailsSidebar));
     this._mainW.next(this.mainW);
   }
 }

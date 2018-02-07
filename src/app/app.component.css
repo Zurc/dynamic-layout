@@ -1,0 +1,9 @@
+.container {
+    position: relative;
+}
+
+.content {
+    border: 1px dashed #ff0000;
+    width: 80%;
+    height: calc(100vh - 36px);
+}
