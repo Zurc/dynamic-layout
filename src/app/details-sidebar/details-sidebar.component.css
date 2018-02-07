@@ -1,8 +1,8 @@
 .details {
     position: absolute;
-    top: 37px;
+    top: 38px;
     right: 0;
     background: #f6c2c2;
-    height: calc(100vh - 36px);
+    height: calc(100vh - 52px);
     padding: 10px;
 }

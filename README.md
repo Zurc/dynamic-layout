@@ -1,4 +1,6 @@
-# TestSubject
+# Reactive Layout
+
+This project is a test of cross component comunication using 'funcional programming' (specifically BehaviourSubjects) approach with angular
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.5.
 
