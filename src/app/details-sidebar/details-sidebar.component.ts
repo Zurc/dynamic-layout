@@ -7,14 +7,18 @@ import { LayoutService } from '../layout.service';
   styleUrls: ['./details-sidebar.component.css']
 })
 export class DetailsSidebarComponent implements OnInit {
-  mw: number;
+  dw: number;
 
   constructor(private layout: LayoutService) { }
 
   ngOnInit() {
-    this.layout.menuWidth$.subscribe(
-      value => this.mw = value
+    this.layout.detailsWidth$.subscribe(
+      value => this.dw = value
     );
+  }
+
+  toggleDetails() {
+    this.layout.toogleDetails();
   }
 
 }
