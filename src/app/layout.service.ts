@@ -6,13 +6,13 @@ export class LayoutService {
   // ***** configuration *****
   //
   // Menu Sidebar width
-  initialMenuWidth = 10;
+  initialMenuWidth = 100;
   //
   // how many pixels the menu will expand
-  MenuWidthPixelsChanged = 20;
+  MenuWidthPixelsChanged = 200;
   //
   // Details Sidebar width
-  detailsWidth = 20;
+  detailsWidth = 200;
   //
   // ************************
 
@@ -24,7 +24,7 @@ export class LayoutService {
 
   // Observable sources
   private _menuW = new BehaviorSubject<number>(this.initialMenuWidth);
-  private _mainW = new BehaviorSubject<number>(80);
+  private _mainW = new BehaviorSubject<number>(800);
   private _detailsW = new BehaviorSubject<number>(this.detailsWidth);
 
   // Streams
