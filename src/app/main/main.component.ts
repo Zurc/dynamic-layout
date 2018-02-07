@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { LayoutService } from '../layout.service';
 import { Observable } from 'rxjs/Observable';
 
@@ -6,24 +6,15 @@ import { Observable } from 'rxjs/Observable';
   selector: 'app-main',
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MainComponent implements OnInit {
-  // menu width
-  mw: number;
-  mainW = 0;
+  mainW: number;
 
   constructor(private layout: LayoutService) { }
 
   ngOnInit() {
-    this.layout.menuWidth$.subscribe(
-      value => this.mw = value
+    this.layout.mainWidth$.subscribe(
+      value => this.mainW = value
     );
-    this.changeMain();
   }
-
-  changeMain() {
-    this.mainW = 100 - this.mw;
-  }
-
 }
